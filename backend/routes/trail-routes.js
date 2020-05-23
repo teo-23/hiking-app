@@ -2,12 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
 
-const Project = require('../models/project-model');
-const Task = require('../models/task-model'); // <== !!!
+const Trail = require('../models/trail-model');
+const Task = require('../models/task-model');
 
-// POST route => to create a new project
-router.post('/projects', (req, res, next)=>{
-  Project.create({
+router.post('/trails', (req, res, next)=>{
+  Trail.create({
     title: req.body.title,
     description: req.body.description,
     tasks: [],
@@ -21,61 +20,57 @@ router.post('/projects', (req, res, next)=>{
   })
 });
 
-router.get('/projects', (req, res, next) => {
-    Project.find()
+router.get('/trails', (req, res, next) => {
+    Trail.find()
       .populate('tasks')
-      .then(allTheProjects => {
-        res.json(allTheProjects);
+      .then(allTheTrails => {
+        res.json(allTheTrails);
       })
       .catch(err => {
         res.json(err);
       });
   });
 
-  router.get('/projects/:id', (req, res, next) => {
+  router.get('/trails/:id', (req, res, next) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       res.status(400).json({ message: 'Specified id is not valid' });
       return;
     }
    
-    // Our projects have array of tasks' ids and
-    // we can use .populate() method to get the whole task objects
-    Project.findById(req.params.id)
+    Trail.findById(req.params.id)
       .populate('tasks')
-      .then(project => {
-        res.status(200).json(project);
+      .then(trail => {
+        res.status(200).json(trail);
       })
       .catch(error => {
         res.json(error);
       });
   });
    
-  // PUT route => to update a specific project
-  router.put('/projects/:id', (req, res, next) => {
+  router.put('/trails/:id', (req, res, next) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       res.status(400).json({ message: 'Specified id is not valid' });
       return;
     }
    
-    Project.findByIdAndUpdate(req.params.id, req.body)
+    Trail.findByIdAndUpdate(req.params.id, req.body)
       .then(() => {
-        res.json({ message: `Project with ${req.params.id} is updated successfully.` });
+        res.json({ message: `Trail with ${req.params.id} is updated successfully.` });
       })
       .catch(error => {
         res.json(error);
       });
   });
    
-  // DELETE route => to delete a specific project
-  router.delete('/projects/:id', (req, res, next) => {
+  router.delete('/trails/:id', (req, res, next) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       res.status(400).json({ message: 'Specified id is not valid' });
       return;
     }
    
-    Project.findByIdAndRemove(req.params.id)
+    Trail.findByIdAndRemove(req.params.id)
       .then(() => {
-        res.json({ message: `Project with ${req.params.id} is removed successfully.` });
+        res.json({ message: `Trail with ${req.params.id} is removed successfully.` });
       })
       .catch(error => {
         res.json(error);

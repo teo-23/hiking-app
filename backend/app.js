@@ -10,19 +10,14 @@ const logger = require('morgan');
 const path = require('path');
 const cors = require('cors');
 
-// WHEN INTRODUCING USERS DO THIS: INSTALL THESE DEPENDENCIES: passport-local,
-// passport, bcryptjs, express-session AND UN-COMMENT OUT FOLLOWING LINES:
 
 const session = require('express-session');
 const passport = require('passport');
 
 require('./configs/passport');
 
-// IF YOU STILL DIDN'T, GO TO 'configs/passport.js' AND UN-COMMENT OUT THE WHOLE
-// FILE
-
 mongoose
-    .connect('mongodb://localhost/projects-server', {useNewUrlParser: true})
+    .connect('mongodb://localhost/trails-server', {useNewUrlParser: true})
     .then(x => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
     })
@@ -42,7 +37,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 // Express View engine setup
-
 app.use(require('node-sass-middleware')({
     src: path.join(__dirname, 'public'),
     dest: path.join(__dirname, 'public'),
@@ -54,31 +48,27 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-// ADD SESSION SETTINGS HERE:
-
+// Sessions
 app.use(session({
     secret: "some secret goes here", 
     resave: true, 
     saveUninitialized: true
 }));
 
-// USE passport.initialize() and passport.session() HERE:
-
 app.use(passport.initialize());
 app.use(passport.session());
 
 // default value for title local
-app.locals.title = 'Express - Generated with teo';
+app.locals.title = 'Hi, King';
 
-// ADD CORS SETTINGS HERE TO ALLOW CROSS-ORIGIN INTERACTION:
-
+//Cors
 app.use(cors({
     credentials: true, 
     origin: ['http://localhost:3000']
 }));
 
 // ROUTES MIDDLEWARE STARTS HERE:
-app.use('/api', require('./routes/project-routes'));
+app.use('/api', require('./routes/trail-routes'));
 app.use('/api', require('./routes/task-routes'));
 
 const index = require('./routes/index');

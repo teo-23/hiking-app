@@ -1,14 +1,11 @@
-// routes/task-routes.js
-
 const express = require('express');
 const mongoose = require('mongoose');
 const Task = require('../models/task-model');
-const Project = require('../models/project-model');
+const Trail = require('../models/trail-model');
 
 const router = express.Router();
 
-// GET route => to retrieve a specific task
-router.get('/projects/:projectId/tasks/:taskId', (req, res, next) => {
+router.get('/trails/:trailId/tasks/:taskId', (req, res, next) => {
   Task.findById(req.params.taskId)
     .then(task => {
       res.json(task);
@@ -18,15 +15,14 @@ router.get('/projects/:projectId/tasks/:taskId', (req, res, next) => {
     });
 });
 
-// POST route => to create a new task
 router.post('/tasks', (req, res, next) => {
   Task.create({
     title: req.body.title,
     description: req.body.description,
-    project: req.body.projectID
+    trail: req.body.trailID
   })
     .then(response => {
-      return Project.findByIdAndUpdate(req.body.projectID, {
+      return Trail.findByIdAndUpdate(req.body.trailID, {
         $push: { tasks: response._id }
       });
     })

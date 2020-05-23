@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 const taskSchema = new Schema({
   title: String,
   description: String,
-  project: {
+  trail: {
     type: Schema.Types.ObjectId,
-    ref: 'Project'
+    ref: 'Trail'
   }
 });
 
