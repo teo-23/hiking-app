@@ -8,8 +8,8 @@ import TrailsList from './components/trails/TrailsList';
 import Navbar from './components/navbar/Navbar';
 import TrailDetails from './components/trails/TrailDetails';
 
-import Signup from './components/auth/Signup';
 import AuthService from './components/auth/auth-service';
+import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 
 
@@ -49,10 +49,9 @@ class App extends Component {
         <div className="App">
           <Navbar userInSession={this.state.loggedInUser} />
           <Switch> 
-            <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
-            <Route exact path='/' render={() => <Login getUser={this.getTheUser}/>}/>
             <Route exact path="/trails" component={TrailsList}/>
-            <Route exact path="/trails/:id" component={TrailDetails} />   
+            <Route exact path="/trails/:id" component={TrailDetails} />
+            {/* <Route exact path="/PROFILE/:id" component={PROFILE} />       */}
           </Switch>
         </div>
       );
@@ -62,6 +61,7 @@ class App extends Component {
           <Navbar userInSession={this.state.loggedInUser} />
           <Switch>
             <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
+            <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
             <Route exact path="/trails" component={TrailsList}/>
             <Route exact path="/trails/:id" component={TrailDetails} />
           </Switch>
