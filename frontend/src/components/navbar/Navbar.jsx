@@ -6,10 +6,10 @@ import React, { Component } from 'react';
 //   useParams,
 // } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import AuthService from '../auth/auth-service';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navbar.css';
 import { Navbar, Nav } from 'react-bootstrap';
+import AuthService from '../../service/auth-service';
 
 
 
