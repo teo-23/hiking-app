@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './AddTrail.css'
 
 class AddTrail extends Component {
   constructor(props){
@@ -26,7 +27,8 @@ class AddTrail extends Component {
 
   render(){
     return(
-      <div>
+      <>
+      <div className="add-trail">
         <form onSubmit={this.handleFormSubmit}>
           <label>Title:</label>
           <input type="text" name="title" value={this.state.title} onChange={ e => this.handleChange(e)}/>
@@ -35,7 +37,9 @@ class AddTrail extends Component {
           
           <input type="submit" value="Submit" />
         </form>
+        
       </div>
+      </>
     )
   }
 }

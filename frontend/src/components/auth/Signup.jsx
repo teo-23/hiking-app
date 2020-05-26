@@ -1,8 +1,7 @@
-// auth/Signup.js
-
 import React, { Component } from 'react';
 import AuthService from '../../service/auth-service';
 import { Link } from 'react-router-dom';
+import './Signup.css';
 
 class Signup extends Component {
   constructor(props){
@@ -35,7 +34,7 @@ class Signup extends Component {
    
   render(){
     return(
-      <div>
+      <div className="signup">
         <form onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
           <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>

@@ -55,6 +55,18 @@ class App extends Component {
             <Route exact path="/trails/:id" component={TrailDetails} />
             {/* <Route exact path="/PROFILE/:id" component={PROFILE} />       */}
           </Switch>
+          <p>TEST</p>
+          <p>TEST</p>
+          <p>TEST</p>
+          <p>TEST</p>
+          <p>TEST</p>
+          <p>TEST</p>
+          <p>TEST</p>
+          <p>TEST</p>
+          <p>TEST</p>
+          <p>TEST</p>
+          <p>TEST</p>
+          {console.log('test')}
         </div>
       );
     } else {

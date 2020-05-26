@@ -57,7 +57,7 @@ class TrailDetails extends Component {
    
   render(){
     return(
-      <div>
+      <div className="trail-details">
         <h1>{this.state.title}</h1>
         <p>{this.state.description}</p>
         <div >

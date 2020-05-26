@@ -38,8 +38,8 @@ class EditTrails extends Component {
 
   render(){
     return (
-      <div>
-        <hr />
+      <div className="edit-trail">
+        <hr/>
         <h3>Edit form</h3>
         <form onSubmit={this.handleFormSubmit}>
           <label>Title:</label>

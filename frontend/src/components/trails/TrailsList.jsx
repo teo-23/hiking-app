@@ -25,7 +25,7 @@ class TrailsList extends Component {
 
   render(){
     return(
-      <div>
+      <div className="trail-list">
         <div style={{width: '60%', float:"left"}}>
           { this.state.listOfTrails.map( trail => {
             return (

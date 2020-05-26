@@ -11,7 +11,8 @@ import './Navbar.css';
 import { Navbar, Nav } from 'react-bootstrap';
 import AuthService from '../../service/auth-service';
 
-
+// import { LinkContainer } from 'react-router-bootstrap'
+import { IndexLinkContainer } from 'react-router-bootstrap';
 
 
 // var prevScrollpos = window.pageYOffset;
@@ -32,13 +33,23 @@ class Navigation extends Component {
     this.service = new AuthService();
   }
  
-  componentWillReceiveProps(nextProps) {
-    this.setState({...this.state, loggedInUser: nextProps["userInSession"]});
+  componentWillMount() {
+    this.service.loggedin()
+    .then(res => {
+      console.log('test',res)
+      this.setState({loggedInUser: res})
+      console.log(this.state)
+    })
   }
- 
+  
+  componentWillUpdate() {
+    console.log('willUpdate', this.state.loggedInUser)
+  }
+
   logoutUser = () =>{
     this.service.logout()
-    .then(() => {
+    .then((res) => {
+      console.log(res, 'testlogout')
       this.setState({ loggedInUser: null });
       this.props.getUser(null);  
     })
@@ -48,62 +59,76 @@ class Navigation extends Component {
     if(this.state.loggedInUser){
       return(
 
-        // <>
-        // <div>
-        //     <Navbar collapseOnSelect expand="lg" id="navbar" className="smart-scroll navbar-expand-lg fixed-top navbar-light bg-white border-0 mb-5">
-        //     <Navbar.Brand id="navbar-title" className="navbar-brand font-weight-bold" href="/">Hiking <span
-        //                 className="navbar-text font-italic text-left"> Welcome, {this.state.loggedInUser.username}</span></Navbar.Brand>
-        //     <Navbar.Toggle aria-controls="responsive-navbar-nav" />            
-        //     <Navbar.Collapse className="test" id="responsive-navbar-nav">
-        //         <Nav className="ml-auto nav-item">
-        //         <Nav.Link className="nav-link text-info" href="#profile">My profile</Nav.Link>
-        //         <Nav.Link className="nav-link text-info" href="/trails">Trails</Nav.Link>
-        //         <Nav.Link className="nav-link text-info" href="/"><button onClick={() => this.logoutUser()}>Logout</button></Nav.Link>
-        //         </Nav>
-        //     </Navbar.Collapse>
-        //     </Navbar>
-        // </div>
-        // </> 
+        <>
+        {console.log('myState', this.state.loggedInUser)}
+        <div>
+            <Navbar collapseOnSelect expand="lg" id="navbar" className="smart-scroll navbar-expand-lg fixed-top navbar-light bg-white border-0 mb-5">
+            <Navbar.Brand id="navbar-title" className="navbar-brand font-weight-bold" href="/">Hiking <span
+                        className="navbar-text font-italic text-left"> Welcome, {this.state.loggedInUser.username}</span></Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />            
+            <Navbar.Collapse className="test" id="responsive-navbar-nav">
+                <Nav className="ml-auto nav-item">
+                <Nav.Link className="nav-link text-info" href="#profile">My profile (not working yet)</Nav.Link>
+                <Nav.Link className="nav-link text-info" href="/trails">Trails</Nav.Link>
+                <Nav.Link className="nav-link text-info" href="/"><button onClick={() => this.logoutUser()}>Logout</button></Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
+            </Navbar>
+        </div>
+        </> 
 
-        <nav className="nav-style">
-          <ul>
-            <li>Welcome, {this.state.loggedInUser.username}</li>
-            <li><Link to='/trails' style={{ textDecoration: 'none' }}>Trails</Link></li>
-            <li>
-              <Link to='/'>
-                <button onClick={() => this.logoutUser()}>Logout</button>
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        // <nav className="nav-style">
+        //   <ul>
+        //     <li>Welcome, {this.state.loggedInUser.username}</li>
+        //     <li><Link to='/trails' style={{ textDecoration: 'none' }}>Trails</Link></li>
+        //     <li>
+        //       <Link to='/'>
+        //         <button onClick={() => this.logoutUser()}>Logout</button>
+        //       </Link>
+        //     </li>
+        //   </ul>
+        // </nav>
       )
     } else {
       return ( 
 
-        // <>
-        // <div>
-        //     <Navbar collapseOnSelect expand="lg" id="navbar" className="smart-scroll navbar-expand-lg fixed-top navbar-light bg-white border-0 mb-5">
-        //     <Navbar.Brand id="navbar-title" className="navbar-brand font-weight-bold" href="/">Hiking <span
-        //                 className="navbar-text font-italic text-left"> walk in freedom</span></Navbar.Brand>
-        //     <Navbar.Toggle aria-controls="responsive-navbar-nav" />            
-        //     <Navbar.Collapse className="test" id="responsive-navbar-nav">
-        //         <Nav className="ml-auto nav-item">
-        //         {/* <Nav.Link className="nav-link text-info" href="#home">Home</Nav.Link> */}
-        //         <Nav.Link className="nav-link text-info" href="/login">Login</Nav.Link>
-        //         <Link className="nav-link text-info" href="/login">LoginTest</Link>
-        //         <Nav.Link className="nav-link text-info" href="/signup">Signup</Nav.Link>
-        //         </Nav>
-        //     </Navbar.Collapse>
-        //     </Navbar>
-        // </div>
-        // </> 
+        <>
+        <div>
+            <Navbar collapseOnSelect expand="lg" id="navbar" className="smart-scroll navbar-expand-lg fixed-top navbar-light bg-white border-0 mb-5">
+            <Navbar.Brand id="navbar-title" className="navbar-brand font-weight-bold" href="/">Hiking <span
+                        className="navbar-text font-italic text-left"> walk in freedom</span></Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />            
+            <Navbar.Collapse className="test" id="responsive-navbar-nav">
+                <Nav className="ml-auto nav-item">
+                {/* <Nav.Link className="nav-link text-info" href="#home">Home</Nav.Link> */}
+                <IndexLinkContainer to="/login">
+                <Nav.Link className="nav-link text-info">Login</Nav.Link>
+                </IndexLinkContainer>
+                {/* <Link className="nav-link text-info" href="/login">LoginTest</Link> */}
+                <Nav.Link as={Link} className="nav-link text-info" to="/signup">Signup</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
+            </Navbar>
+        </div>
+        </> 
 
-        <nav className="nav-style">
-          <ul>
-            <li><Link to='/login' style={{ textDecoration: 'none' }}>Login</Link></li>
-            <li><Link to='/signup' style={{ textDecoration: 'none' }}>Signup</Link></li>
-          </ul>
-        </nav>
+      //   <Nav>
+      //   {console.log('ciao', this.state.loggedInUser)}
+      //     <Nav.Link as={Link} to="/login" >
+      //         Home
+      //     </Nav.Link>
+      //     <Nav.Link as={Link} to="/signup" >
+      //         Book Inv
+      //     </Nav.Link>
+      //     {console.log('ciaoagain', this.state.loggedInUser)}
+      // </Nav>
+
+        // <nav className="nav-style">
+        //   <ul>
+        //     <li><Link to='/login' style={{ textDecoration: 'none' }}>Login</Link></li>
+        //     <li><Link to='/signup' style={{ textDecoration: 'none' }}>Signup</Link></li>
+        //   </ul>
+        // </nav>
       )
     }
   }

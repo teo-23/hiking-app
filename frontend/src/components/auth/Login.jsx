@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthService from '../../service/auth-service';
 import { Link } from 'react-router-dom';
+import './Login.css';
 
 class Login extends Component {
   constructor(props){
@@ -28,7 +29,7 @@ class Login extends Component {
     
   render(){
     return(
-      <div>
+      <div className="login">
         <form onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
           <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
