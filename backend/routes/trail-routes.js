@@ -1,24 +1,36 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
+const axios = require('axios')
 
 const Trail = require('../models/trail-model');
 const Task = require('../models/task-model');
 
-router.post('/trails', (req, res, next)=>{
-  Trail.create({
-    title: req.body.title,
-    description: req.body.description,
-    tasks: [],
-    owner: req.user._id
-  })
-  .then(response => {
-  res.json(response);
-  })
-  .catch(err => {
-  res.json(err);
-  })
-});
+
+router.post('/trails', (req, res, next) => {
+  const {lat, lng} = req.body
+  axios.get(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&maxDistance=200&key=200769748-59b4be8a19d8011df700cb4a4287a99c`)
+  .then(response => console.log(response.data))
+  .catch(err => next(err))
+
+})
+
+
+
+// router.post('/trails', (req, res, next)=>{
+//   Trail.create({
+//     title: req.body.title,
+//     description: req.body.description,
+//     tasks: [],
+//     owner: req.user._id
+//   })
+//   .then(response => {
+//   res.json(response);
+//   })
+//   .catch(err => {
+//   res.json(err);
+//   })
+// });
 
 router.get('/trails', (req, res, next) => {
     Trail.find()

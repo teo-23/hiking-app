@@ -11,6 +11,7 @@ import TrailDetails from './components/trails/TrailDetails';
 import Signup from './components/auth/Signup';
 import AuthService from './service/auth-service';
 import Login from './components/auth/Login';
+import GoogleMaps from './components/Googlemaps/Googlemaps';
 
 
 class App extends Component {
@@ -60,12 +61,15 @@ class App extends Component {
       return (
         <div className="App">
           <Navbar userInSession={this.state.loggedInUser} />
+          
           <Switch>
             <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
             <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
             <Route exact path="/trails" component={TrailsList}/>
             <Route exact path="/trails/:id" component={TrailDetails} />
           </Switch>
+
+          <GoogleMaps />
         </div>
       );
     }
