@@ -9,8 +9,8 @@ import GoogleMapsService from '../../service/googlemaps-service'
 class Googlemaps extends Component {
   static defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 52.3727598,
+      lng: 4.8936041
     },
     zoom: 11,
   };
@@ -32,7 +32,7 @@ class Googlemaps extends Component {
       // Important! Always set the container height explicitly
       <div id="map">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_API_KEY }}
+          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
           onClick={this._onClick}
