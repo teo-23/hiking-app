@@ -9,7 +9,7 @@ const Task = require('../models/task-model');
 
 router.post('/trails', (req, res, next) => {
   const {lat, lng} = req.body
-  axios.get(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&maxDistance=200&key=200769748-59b4be8a19d8011df700cb4a4287a99c`)
+  axios.get(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&maxDistance=200&key=${process.env.HKINGPROJECT_API_KEY}`)
   .then(response => console.log(response.data))
   .catch(err => next(err))
 
