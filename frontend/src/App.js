@@ -13,6 +13,12 @@ import AuthService from './service/auth-service';
 import Login from './components/auth/Login';
 import GoogleMaps from './components/Googlemaps/Googlemaps';
 
+import Footer from './components/Footer/Footer';
+import CardPhotoLeft from './components/CardPhotoLeft/CardPhotoLeft';
+import CardPhotoRight from './components/CardPhotoRight/CardPhotoRight';
+import HorizontalLine from './components/HorizontalLine/HorizontalLine';
+import HorizontalPhoto from './components/HorizontalPhoto/HorizontalPhoto';
+import FreeText from './components/FreeText/FreeText'
 
 class App extends Component {
   constructor(props){
@@ -56,18 +62,17 @@ class App extends Component {
             <Route exact path="/trails/:id" component={TrailDetails} />
             {/* <Route exact path="/PROFILE/:id" component={PROFILE} />       */}
           </Switch>
-          <p>TEST</p>
-          <p>TEST</p>
-          <p>TEST</p>
-          <p>TEST</p>
-          <p>TEST</p>
-          <p>TEST</p>
-          <p>TEST</p>
-          <p>TEST</p>
-          <p>TEST</p>
-          <p>TEST</p>
-          <p>TEST</p>
-          {console.log('test')}
+          
+          <CardPhotoLeft />
+          <HorizontalLine />
+          <CardPhotoRight />
+          <HorizontalLine />
+          <HorizontalPhoto />
+          <HorizontalLine />
+          <FreeText />
+          <HorizontalLine />
+
+          <Footer />
         </div>
       );
     } else {
@@ -84,6 +89,17 @@ class App extends Component {
           </Switch>
 
           <GoogleMaps />
+
+          <CardPhotoLeft />
+          <HorizontalLine />
+          <CardPhotoRight />
+          <HorizontalLine />
+          <HorizontalPhoto />
+          <HorizontalLine />
+          <FreeText />
+          <HorizontalLine />
+                  
+          <Footer />
         </div>
       );
     }
