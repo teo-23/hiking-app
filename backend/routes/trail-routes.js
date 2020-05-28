@@ -9,7 +9,10 @@ const Task = require('../models/task-model');
 
 router.post('/trails', (req, res, next) => {
   const {lat, lng} = req.body
-  axios.get(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&maxDistance=100&maxResults=20&key=${process.env.HKINGPROJECT_API_KEY}`)
+  // to do 
+  // - user able to change max distance 
+  // - user able to change max results
+  axios.get(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&maxDistance=100&maxResults=10&key=${process.env.HKINGPROJECT_API_KEY}`)
   .then(response => res.json(response.data)) // Hoe stuur ik deze data terug?
   .catch(err => next(err))
 })

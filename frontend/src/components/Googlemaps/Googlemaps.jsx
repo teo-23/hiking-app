@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './googlemaps.css'
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker.jsx'
+import AddTrail from './AddTrail.jsx'
 import GoogleMapsService from '../../service/googlemaps-service'
 //const AnyReactComponent = ({ text }) => <div>{text}</div>;
  
@@ -15,6 +16,8 @@ class Googlemaps extends Component {
   };
 
   state = {
+    lat: '',
+    lng: '',
     trails: [],
     succes: null,
     service: new GoogleMapsService()
@@ -27,7 +30,7 @@ class Googlemaps extends Component {
       console.log(response.trails)
       console.log(response.success)
 
-      this.setState({trails: response.trails, succes: response.success})
+      this.setState({trails: response.trails, succes: response.success, lat, lng})
     })
     
   }
@@ -42,6 +45,11 @@ class Googlemaps extends Component {
           defaultZoom={this.props.zoom}
           onClick={this._onClick}
         >
+          
+          <AddTrail
+          lat={this.state.lat}
+          lng={this.state.lng}
+          />
         
         {this.state.trails.length > 0 ? this.state.trails.map((trail, index) => (
           <Marker
