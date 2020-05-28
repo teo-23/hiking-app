@@ -1,13 +1,13 @@
 import React from 'react'
+import hiker from './hiker-icon.png'
+import './googlemaps.css'
 
 export default function Marker(props) {
 
 
     return (
         <div>
-            <img src="http://placekitten.com/50/50" alt=""/>
-            <strong>{props.text}</strong>
-            <button>click</button>
+            <img id="hiker-icon" src={hiker} alt=""/>
         </div>
     )
 }

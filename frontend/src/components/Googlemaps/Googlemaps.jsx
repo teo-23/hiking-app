@@ -51,15 +51,14 @@ class Googlemaps extends Component {
           lng={this.state.lng}
           />
         
-        {this.state.trails.length > 0 ? this.state.trails.map((trail, index) => (
+        {this.state.trails.length > 0 && this.state.trails.map((trail, index) => (
           <Marker
           key={index}
           lat={trail.latitude}
           lng={trail.longitude}
           text={trail.location}
           />  
-        )) : ""
-        }
+        ))}
 
         </GoogleMapReact>
       </div>
