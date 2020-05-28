@@ -12,7 +12,7 @@ router.post('/trails', (req, res, next) => {
   // to do 
   // - user able to change max distance 
   // - user able to change max results
-  axios.get(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&maxDistance=100&maxResults=10&key=${process.env.HKINGPROJECT_API_KEY}`)
+  axios.get(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&maxDistance=200&maxResults=20&key=${process.env.HKINGPROJECT_API_KEY}`)
   .then(response => res.json(response.data)) // Hoe stuur ik deze data terug?
   .catch(err => next(err))
 })

@@ -1,4 +1,21 @@
+/* Size of the initial google map */
 #map {
     height: 400px;
     width: 100%;
 }
+
+
+#hiker-icon {
+    height: 30px;
+}
+
+.search-bar {
+    width:100%;
+    height: 20px;
+}
+/* button styling */
+
+
+  
+  /* css for the shiny buttons */
+

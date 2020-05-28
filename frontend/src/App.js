@@ -12,6 +12,7 @@ import Signup from './components/auth/Signup';
 import AuthService from './service/auth-service';
 import Login from './components/auth/Login';
 import GoogleMaps from './components/Googlemaps/Googlemaps';
+import SearchBar from './components/Searchbar/Searchbar'
 
 import Footer from './components/Footer/Footer';
 import CardPhotoLeft from './components/CardPhotoLeft/CardPhotoLeft';
@@ -88,7 +89,9 @@ class App extends Component {
             <Route exact path="/trails/:id" component={TrailDetails} />
           </Switch>
 
+          
           <GoogleMaps />
+          <SearchBar />
 
           <CardPhotoLeft />
           <HorizontalLine />
