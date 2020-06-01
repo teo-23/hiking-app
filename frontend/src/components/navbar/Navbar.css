@@ -5,6 +5,10 @@
     font-size: 1.5rem;
 }
 
+.logo {
+    height: 50px
+}
+
 #navbar-title {
     color: #61DAFB;
 }

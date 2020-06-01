@@ -8,8 +8,8 @@ export default function Footer() {
             <footer className="page-footer font-small text-info">
 
             <div className="footer-copyright text-center py-3">© 2020 Copyright:
-                <a className="footer-link" href="https://github.com/MichielSnoek"> MichielSnoek</a> &
-                <a className="footer-link" href="https://github.com/teo-23"> teo-23</a>
+                <a className="footer-link" target="_blank" href="https://github.com/MichielSnoek"> MichielSnoek</a> &
+                <a className="footer-link" target="_blank" href="https://github.com/teo-23"> teo-23</a>
             </div>
 
             </footer>
