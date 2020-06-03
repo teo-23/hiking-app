@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+/* ADDED BY TEO+MICHIEL */
+
+.homepage {
+  padding: 6% 1.8% 0% 1.8%;
+}

@@ -64,14 +64,17 @@ class App extends Component {
             {/* <Route exact path="/PROFILE/:id" component={PROFILE} />       */}
           </Switch>
           
-          <CardPhotoLeft />
+          <GoogleMaps />
+          <SearchBar />
+
+          {/* <CardPhotoLeft />
           <HorizontalLine />
           <CardPhotoRight />
           <HorizontalLine />
           <HorizontalPhoto />
           <HorizontalLine />
           <FreeText />
-          <HorizontalLine />
+          <HorizontalLine /> */}
 
           <Footer />
         </div>
@@ -88,19 +91,18 @@ class App extends Component {
             <Route exact path="/trails/:id" component={TrailDetails} />
           </Switch>
 
-          
-          <GoogleMaps />
-          <SearchBar />
+            <div className="homepage">
+              {/* <GoogleMaps />
+              <SearchBar /> */}
+              <HorizontalPhoto />
+              <HorizontalLine />
 
-          <CardPhotoLeft />
-          <HorizontalLine />
-          <CardPhotoRight />
-          <HorizontalLine />
-          <HorizontalPhoto />
-          <HorizontalLine />
-          <FreeText />
-          <HorizontalLine />
-                  
+              <CardPhotoRight />
+              <HorizontalLine />
+              <CardPhotoLeft />
+              <HorizontalLine />
+              <FreeText />
+            </div>     
           <Footer />
         </div>
       );

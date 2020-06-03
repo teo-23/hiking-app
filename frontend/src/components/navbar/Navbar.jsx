@@ -21,7 +21,7 @@ var prevScrollpos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
     document.getElementById("navbar").style.top = "0";
     } else {
-    document.getElementById("navbar").style.top = "-70px";
+    document.getElementById("navbar").style.top = "-90px";
     }
     prevScrollpos = currentScrollPos;
     }
@@ -88,25 +88,26 @@ class Navigation extends Component {
                 <Nav className="mr-auto nav-item">
                 {/* <Nav.Link className="nav-link text-info" href="#home">Home</Nav.Link> */}
                 <IndexLinkContainer to="/explore">
-                <Nav.Link className="nav-link text-info">Explore</Nav.Link>
+                <Nav.Link className="nav-link navbar-element">Explore</Nav.Link>
                 </IndexLinkContainer>
                 {/* <Link className="nav-link text-info" href="/login">LoginTest</Link> */}
-                <Nav.Link as={Link} className="nav-link text-info" to="/profile">Profile</Nav.Link>
+                <Nav.Link as={Link} className="nav-link navbar-element" to="/profile">Profile</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             
-            <Navbar.Brand id="navbar-title" className="navbar-brand font-weight-bold" href="/"><img className="logo" src="/LogoMakr_1gsA7S.png" alt="logo-hiking"/> <span
-                        className="navbar-text font-italic text-left"> walk in freedom</span></Navbar.Brand>
+            <Navbar.Brand id="navbar-title" className="navbar-brand font-weight-bold" href="/"><img className="logo" src="/logo-hiking.png" alt="logo-hiking"/> 
+            {/* <span className="navbar-text font-italic text-left navbar-element"> walk in freedom</span> */}
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />            
             
             <Navbar.Collapse className="test" id="responsive-navbar-nav">
                 <Nav className="ml-auto nav-item">
                 {/* <Nav.Link className="nav-link text-info" href="#home">Home</Nav.Link> */}
                 <IndexLinkContainer to="/login">
-                <Nav.Link className="nav-link text-info">Login</Nav.Link>
+                <Nav.Link className="nav-link navbar-element">Login</Nav.Link>
                 </IndexLinkContainer>
                 {/* <Link className="nav-link text-info" href="/login">LoginTest</Link> */}
-                <Nav.Link as={Link} className="nav-link text-info" to="/signup">Signup</Nav.Link>
+                <Nav.Link as={Link} className="nav-link navbar-element" to="/signup">Signup</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             

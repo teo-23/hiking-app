@@ -5,7 +5,7 @@ import Animate from 'animate.css'
 export default function FreeText() {
     return (
         <div className="free-text">
-        <h1 className="animate__animated animate__bounce">An animated header</h1>
+        <h1 className="animate__animated animate__bounce">Hiking, the app for your quality time</h1>
 
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at consectetur orci. Curabitur sollicitudin tempor ante et bibendum. Cras sed orci ut quam euismod placerat. Integer a nulla imperdiet, luctus dolor id, dapibus felis. Praesent auctor pharetra iaculis. Nullam ligula tortor, tristique et libero in, interdum dictum nulla. Aliquam tempus vitae eros at viverra.</p>
 

@@ -5,21 +5,15 @@
     font-size: 1.5rem;
 }
 
-.Photo-right {
+.photo-right {
     height: 40vmin;
+    border-radius: 1.5%;
   }
   
-  @media (prefers-reduced-motion: no-preference) {
-    .Photo-right {
-      animation: App-logo-spin infinite 200s linear;
-    }
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+.quote {
+  font-weight: bold;
+}
+
+.span-quote {
+  font-style: italic;
+}
