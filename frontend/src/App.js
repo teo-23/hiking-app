@@ -13,6 +13,7 @@ import AuthService from './service/auth-service';
 import Login from './components/auth/Login';
 import GoogleMaps from './components/Googlemaps/Googlemaps';
 import SearchBar from './components/Searchbar/Searchbar'
+import SearchResults from './components/SearchResults/SearchResults'
 
 import Footer from './components/Footer/Footer';
 import CardPhotoLeft from './components/CardPhotoLeft/CardPhotoLeft';
@@ -64,8 +65,10 @@ class App extends Component {
             {/* <Route exact path="/PROFILE/:id" component={PROFILE} />       */}
           </Switch>
           
+          
           <GoogleMaps />
           <SearchBar />
+          <SearchResults />
 
           {/* <CardPhotoLeft />
           <HorizontalLine />
