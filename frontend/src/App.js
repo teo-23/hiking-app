@@ -90,7 +90,7 @@ class App extends Component {
           </Switch>
 
           
-          <GoogleMaps />
+          {/* <GoogleMaps /> */}
           <SearchBar />
 
           <CardPhotoLeft />
