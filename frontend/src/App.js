@@ -91,11 +91,14 @@ class App extends Component {
             <Route exact path="/trails/:id" component={TrailDetails} />
           </Switch>
 
+
+
             <div className="homepage">
               {/* <GoogleMaps />
               <SearchBar /> */}
               <HorizontalPhoto />
               <HorizontalLine />
+
 
               <CardPhotoRight />
               <HorizontalLine />
