@@ -64,14 +64,17 @@ class App extends Component {
             {/* <Route exact path="/PROFILE/:id" component={PROFILE} />       */}
           </Switch>
           
-          <CardPhotoLeft />
+          <GoogleMaps />
+          <SearchBar />
+
+          {/* <CardPhotoLeft />
           <HorizontalLine />
           <CardPhotoRight />
           <HorizontalLine />
           <HorizontalPhoto />
           <HorizontalLine />
           <FreeText />
-          <HorizontalLine />
+          <HorizontalLine /> */}
 
           <Footer />
         </div>
@@ -84,24 +87,25 @@ class App extends Component {
           <Switch>
             <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
             <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
-            <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
             <Route exact path="/trails" component={TrailsList}/>
             <Route exact path="/trails/:id" component={TrailDetails} />
           </Switch>
 
-          
-          {/* <GoogleMaps /> */}
-          <SearchBar />
 
-          <CardPhotoLeft />
-          <HorizontalLine />
-          <CardPhotoRight />
-          <HorizontalLine />
-          <HorizontalPhoto />
-          <HorizontalLine />
-          <FreeText />
-          <HorizontalLine />
-                  
+
+            <div className="homepage">
+              {/* <GoogleMaps />
+              <SearchBar /> */}
+              <HorizontalPhoto />
+              <HorizontalLine />
+
+
+              <CardPhotoRight />
+              <HorizontalLine />
+              <CardPhotoLeft />
+              <HorizontalLine />
+              <FreeText />
+            </div>     
           <Footer />
         </div>
       );

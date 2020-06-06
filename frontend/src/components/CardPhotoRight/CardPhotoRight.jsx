@@ -5,13 +5,15 @@ import './CardPhotoRight.css';
 export default function CardPhotoRight() {
     return (
         <div>
+
         <div className="row align-items-center">
-            <div className="col-8 content-right-photo">
-                <p>Note that the development build is not optimized.
-                To create a production build, use npm run build.
-                </p>
+            <div className="col-8 content-right-photo container">
+                <p>Save, create, and share your favorite trails</p>
+                <p className="quote">“I took the one less traveled by, <br></br>
+                And that has made all the difference.” <br></br>
+                <span className="span-quote"> – Robert Frost</span></p>
             </div>
-            <div className="col-4"><img className="Photo-right" src="/logo512.png" alt="nightmare" /></div>
+            <div className="col-4"><img className="photo-right" src="/alberta.jpg" alt="landscape" /></div>
         </div>
                 
         </div>

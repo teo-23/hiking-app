@@ -5,8 +5,16 @@
     font-size: 1.5rem;
 }
 
+.logo {
+    height: 70px
+}
+
 #navbar-title {
-    color: #61DAFB;
+    color: #214222;
+}
+
+.navbar-element {
+    color: #214222 !important;
 }
 
 .nav-item {
