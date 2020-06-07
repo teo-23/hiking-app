@@ -89,11 +89,14 @@ class App extends Component {
             <Route exact path="/trails" component={TrailsList}/>
             <Route exact path="/trails/:id" component={TrailDetails} />
 
+
+
             <div className="homepage">
               {/* <GoogleMaps />
               <SearchBar /> */}
               <HorizontalPhoto />
               <HorizontalLine />
+
 
               <CardPhotoRight />
               <HorizontalLine />
