@@ -2,5 +2,46 @@
 
 .signup {
     font-family: 'Playfair Display', serif;
-    margin-top: 300px;
+}
+
+section {
+    background-image: url("/man-standing-on-a-rock-1271619.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 200px;
+    padding-bottom: 160px;
+}
+
+.signup-form {
+    background-color: rgb(43, 77, 43);
+    width: 25rem;
+    border-radius: 3%;
+    opacity: 0.7;
+    color: white;
+    /* background: #cef;
+    border: 1.4rem solid;
+    border-image: radial-gradient(#ff2, #55f) 40;
+    border-image-outset: 1.5; */
+}
+
+.header {
+
+}
+
+.username {
+
+}
+
+.password {
+
+}
+
+.button {
+
+}
+
+.form-footer {
+
 }

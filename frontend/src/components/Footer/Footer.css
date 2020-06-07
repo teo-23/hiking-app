@@ -4,8 +4,15 @@
     font-family: 'Playfair Display', serif;
     font-size: 1.25rem;
     border-top: 1px solid #214222;
+    background-color: white;
 }
 
 .footer-link {
     color: #214222;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

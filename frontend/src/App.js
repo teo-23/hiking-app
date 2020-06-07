@@ -1,5 +1,3 @@
-// App.js
-
 import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
@@ -81,6 +79,7 @@ class App extends Component {
       );
     } else {
       return (
+        <>
         <div className="App">
           <Navbar userInSession={this.state.loggedInUser} />
           
@@ -105,6 +104,7 @@ class App extends Component {
           </Switch>  
           <Footer />
         </div>
+              </>
       );
     }
   }
