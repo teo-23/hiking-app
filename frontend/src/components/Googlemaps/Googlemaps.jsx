@@ -27,13 +27,18 @@ class Googlemaps extends Component {
     //console.log(lat, lng)
     this.state.service.fetchTrails(lat, lng)
     .then(response => {
-      console.log(response.trails)
-      console.log(response.success)
-
-      this.setState({trails: response.trails, succes: response.success, lat, lng})
+      console.log(response)
+      console.log(response)
+      this.props.setTrails(response)
+      this.setState({trails: response, lat, lng})
     })
     
   }
+
+  showForm = () => {
+    this.props.showForm(this.state.lat, this.state.lng)
+  }
+
  
   render() {
     return (
@@ -49,6 +54,7 @@ class Googlemaps extends Component {
           <AddTrail
           lat={this.state.lat}
           lng={this.state.lng}
+          showForm={this.showForm}
           />
         
         {this.state.trails.length > 0 && this.state.trails.map((trail, index) => (

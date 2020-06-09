@@ -6,17 +6,11 @@ export default function SearchBar(props) {
     const [value, setValue] = useState('Walk in freedom')
 
     return (
-        <div class="search-container">
-         
-                <img id="hiking-banner" src={hikingBanner} alt=""/>
-                <p class="centered-text">Find your next favorite trail</p>
-                <form class="centered" action="">
+                <form  action="">
                     <div class="transparent-wrapper">
                         <input class="search-bar" type="text" value={value} onChange={(e) => setValue(e.target.value)}/> 
                     </div>
                 </form>
-         
-        </div>
     )   
 }
  
