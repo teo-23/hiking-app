@@ -2,5 +2,35 @@
 
 .login {
     font-family: 'Playfair Display', serif;
-    /* margin-top: 300px; */
+}
+
+.section-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/login.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 93vh;
+}
+
+.login-form {
+    background-color: rgb(43, 77, 43);
+    width: 20rem;
+    border-radius: 3%;
+    opacity: 0.75;
+    /* background: #cef;
+    border: 1.4rem solid;
+    border-image: radial-gradient(#ff2, #55f) 40;
+    border-image-outset: 1.5; */
+}
+
+.signup-call {
+    color: yellow;
+}
+
+.signup-call:hover {
+    color: wheat;
 }

@@ -84,14 +84,10 @@ class Navigation extends Component {
         <div>
             <Navbar collapseOnSelect expand="lg" id="navbar" className="smart-scroll navbar-expand-lg fixed-top navbar-light bg-white border-0 mb-5">
             
-            <Navbar.Collapse className="test" id="responsive-navbar-nav">
+            <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto nav-item">
-                {/* <Nav.Link className="nav-link text-info" href="#home">Home</Nav.Link> */}
-                <IndexLinkContainer to="/explore">
-                <Nav.Link className="nav-link navbar-element">Explore</Nav.Link>
-                </IndexLinkContainer>
-                {/* <Link className="nav-link text-info" href="/login">LoginTest</Link> */}
-                <Nav.Link as={Link} className="nav-link navbar-element" to="/profile">Profile</Nav.Link>
+                  <Nav.Link as={Link} className="nav-link navbar-element" to="/explore">Explore</Nav.Link>
+                  <Nav.Link as={Link} className="nav-link navbar-element" to="/profile">Profile</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             
@@ -100,14 +96,10 @@ class Navigation extends Component {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />            
             
-            <Navbar.Collapse className="test" id="responsive-navbar-nav">
+            <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ml-auto nav-item">
-                {/* <Nav.Link className="nav-link text-info" href="#home">Home</Nav.Link> */}
-                <IndexLinkContainer to="/login">
-                <Nav.Link className="nav-link navbar-element">Login</Nav.Link>
-                </IndexLinkContainer>
-                {/* <Link className="nav-link text-info" href="/login">LoginTest</Link> */}
-                <Nav.Link as={Link} className="nav-link navbar-element" to="/signup">Signup</Nav.Link>
+                  <Nav.Link as={Link} className="nav-link navbar-element" to="/login">Login</Nav.Link>
+                  <Nav.Link as={Link} className="nav-link navbar-element" to="/signup">Signup</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             

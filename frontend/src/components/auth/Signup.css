@@ -5,21 +5,22 @@
 }
 
 section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url("/man-standing-on-a-rock-1271619.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    padding-top: 200px;
-    padding-bottom: 160px;
+    height: 93vh;
 }
 
 .signup-form {
     background-color: rgb(43, 77, 43);
-    width: 25rem;
+    width: 20rem;
     border-radius: 3%;
-    opacity: 0.7;
-    color: white;
+    opacity: 0.75;
     /* background: #cef;
     border: 1.4rem solid;
     border-image: radial-gradient(#ff2, #55f) 40;
@@ -27,21 +28,52 @@ section {
 }
 
 .header {
-
+    color: white;
+    margin-bottom: 18px;
 }
 
 .username {
-
+    color: white;
 }
 
 .password {
-
+    color: white;
 }
 
 .button {
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid rgba(255,255,255,0);
+    border-radius:1.25em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:300;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
+    background-color: #16290a;
+}
 
+button:hover{
+    border-color: white;
+    }
+    
+    @media all and (max-width:30em){
+    a.button4{
+    display:block;
+    margin:0.2em auto;
+    }
 }
 
 .form-footer {
+    color: white;
+}
 
+.login-call {
+    color: yellow;
+}
+
+.login-call:hover {
+    color: wheat;
 }

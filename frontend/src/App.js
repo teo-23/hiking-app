@@ -63,6 +63,8 @@ class App extends Component {
   }
 
   showForm = (lat, lng) => {
+    console.log(this.state.showForm)
+    console.log(this.state.trails)
     this.state.showForm ? 
     this.setState({showForm: false}) :
     this.setState({showForm: true, lat: lat, lng: lng})
@@ -100,11 +102,12 @@ class App extends Component {
 
           { this.state.trails.map((trail, index) => (
             <SearchResults 
+            key = {index}
             img = {trail.imgSmall}
             name = {trail.name}
             difficulty = {trail.difficulty}
             summary = {trail.summary}
-          />
+            />
           ))
           }
          
@@ -151,7 +154,7 @@ class App extends Component {
           </Switch>  
           <Footer />
         </div>
-              </>
+        </>
       );
     }
   }

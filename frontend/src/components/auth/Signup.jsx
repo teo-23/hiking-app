@@ -38,26 +38,26 @@ class Signup extends Component {
       <section id="section">
 
         <div className="signup container signup-form">
-            <h1 className="header">make your first step</h1>
+            <h3 className="header">make your first step</h3>
 
-            <form onSubmit={this.handleFormSubmit}>
-              <label className="username">Username: </label>
-              <input type="text" name="username" placeholder="start hiking today" required value={this.state.username} onChange={ e => this.handleChange(e)}/>
-              <br></br>
-              <label className="password">Password: </label>
-              <input type="password" name="password" placeholder="type your password here" required value={this.state.password} onChange={ e => this.handleChange(e)} />
+            <div className="">
+              <form onSubmit={this.handleFormSubmit}>
+                <label className="username">Username: </label>
+                <input type="text" name="username" placeholder="start hiking today" required value={this.state.username} onChange={ e => this.handleChange(e)}/>
+                <br></br>
+                <br></br>
+                <label className="password">Password: </label>
+                <input type="password" name="password" placeholder="choose your password" required value={this.state.password} onChange={ e => this.handleChange(e)} />
+                <br/><br/>
+                <input type="submit" value="Signup" className="button"/>
+              </form>
               <br/>
-              <input type="submit" value="Signup" className="button"/>
-            </form>
-            <br/>
-            <p className="form-footer">Already have account? 
-                <Link to={"/login"} className="login"> Login</Link>
-            </p>
+              <p className="form-footer">Already have account? 
+                  <Link to={"/login"} className="login-call"> Login</Link>
+              </p>
+            </div>
         </div>
 
-        <div>
-          <p>TEST</p>
-        </div>
       </section>
     </>
     )
