@@ -3,9 +3,10 @@ const Schema = mongoose.Schema;
 const User = require('./user-model');
  
 const trailSchema = new Schema({
-  title: String,
-  description: String,
-  tasks: [{type: Schema.Types.ObjectId, ref: 'Task'}],
+  name: String,
+  summary: String,
+  latitude: Number,
+  longitude: Number,
   owner: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
