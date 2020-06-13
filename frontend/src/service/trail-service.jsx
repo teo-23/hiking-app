@@ -10,13 +10,21 @@ class TrailService {
   }
 
   createTrail = (trail) => {
-    return this.service.post('/createTrail', {trail})
+    return this.service.post('/createTrail', trail)
     .then(response => response.data)
   }
 
   fetchTrails = (lat, lng) => {
     return this.service.post('/getTrails', {lat, lng})
     .then(response => response.data)
+  }
+
+  addToFavorite = (trail) => {
+    return this.service.post('/addToFavorite', {trail})
+    .then(response => {
+      console.log(response)
+      return response.data
+    })
   }
   
 }

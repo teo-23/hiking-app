@@ -53,6 +53,12 @@
     font-size: 12px;
 }
 
+.like button {
+    background-color: white;
+    color: rgba(189, 189, 211,1);
+    border-radius: 0px 0px 8px 8px;
+    border: 1px solid rgba(189, 189, 211,1);
+}
 
 img {
     height: 200px;

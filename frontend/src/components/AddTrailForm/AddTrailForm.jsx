@@ -5,8 +5,9 @@ import TrailService from '../../service/trail-service'
 class AddTrailForm extends Component {
 
     state = { 
-            title: '',
-            description: '',
+            name: '',
+            summary: '',
+            difficulty: 'green',
             selectedFile: null,
             service: new TrailService()
     }
@@ -14,22 +15,19 @@ class AddTrailForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        // const data = new FormData()
-        // data.append('trailimage', this.state.selectedFile)
+        const data = new FormData()
+        data.append('trailimage', this.state.selectedFile)
+        data.append('latitude', this.props.lat)
+        data.append('longitude', this.props.lng)
+        data.append('name', this.state.name)
+        data.append('summary', this.state.summary)
+        data.append('difficulty', this.state.difficulty)
 
-        const newTrail = {
-            latitude: this.props.lat,
-            longitude: this.props.lng,
-            title: this.state.title,
-            description: this.state.description
-          }
-
-        this.state.service.createTrail(newTrail)
+        this.state.service.createTrail(data)
         .then(response => {
             console.log(response)
             this.props.hideForm()
         })
-        this.props.hideForm()
     }
 
     handleFileInput = (e) => {
@@ -44,14 +42,35 @@ class AddTrailForm extends Component {
     render() {
         return (
 
-        <div class="wrapper">
-            <form onSubmit={(e) => this.handleSubmit(e)}>
-                {/* <input type="file" name="trailimage" onChange={this.handleFileInput}/> */}
-                <label>Title</label>
-                <input type="text" name="title" value={this.state.title} onChange={(e)=> this.handleInput(e)} />
-                <label>Description</label>
-                <input type="text" name="description" value={this.state.description} onChange={(e)=> this.handleInput(e)} />
+        <div class="form-wrapper">
+            <form id="formy" onSubmit={(e) => this.handleSubmit(e)}>
+
+                <div id="one">
+                <h4>title</h4>
+                <input type="text" name="name" value={this.state.name} onChange={(e)=> this.handleInput(e)} />
+
+                <h4>description</h4>
+                <textarea name="summary" value={this.state.summary} onChange={(e)=> this.handleInput(e)}></textarea>
+                
+                
+                <div id="difficult">
+                <h4>difficulty</h4>
+                <select name="difficulty" value={this.state.difficulty} onChange={(e)=> this.handleInput(e)}>
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                    <option value="black">black</option>
+                </select>
+                </div>
+                </div>
+                
+
+                <div id="two">
+                <div id="file-upload">
+                <input id="photo" type="file" name="trailimage" onChange={this.handleFileInput}/>
+                </div>
+
                 <button type="submit">add Trail</button>
+                </div>
             </form>
         </div>
 

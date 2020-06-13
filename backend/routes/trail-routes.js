@@ -2,9 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
 const axios = require('axios')
+const Trail = require('../models/trail-model');
+const uploadCloud = require('../configs/cloudinary');
+
+
+
+
 //const parser = require('../configs/cloudinary');
 
-const Trail = require('../models/trail-model');
+
 
 
 router.post('/getTrails', (req, res, next) => {
@@ -42,15 +48,18 @@ router.post('/getTrails', (req, res, next) => {
 })
 
 
-router.post('/createTrail', (req, res, next) => {
+router.post('/createTrail', uploadCloud.single('trailimage'), (req, res, next) => {
   console.log(req.body)
-  const {title, description, latitude, longitude} = req.body
+  console.log(req.file)
+  const {name, summary, latitude, longitude, difficulty} = req.body
 
   // console.log(req.file.url)
   
   Trail.create({
-    name: title,
-    summary: description,
+    name,
+    summary,
+    imgSmall: req.file.path,
+    difficulty,
     latitude,
     longitude,
     owner: req.user._id
@@ -63,7 +72,14 @@ router.post('/createTrail', (req, res, next) => {
   })
 });
 
+router.post('/addToFavorite', (req, res, next) => {
+  console.log(req.body.trail)
+  const {img, name, difficulty} = req.body.trail
+  Trail.find({name})
+  .then(response => console.log(response))
 
+
+})
 
 
 
@@ -80,7 +96,7 @@ router.get('/trails', (req, res, next) => {
       });
   });
 
-  router.get('/trails/:id', (req, res, next) => {
+router.get('/trails/:id', (req, res, next) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       res.status(400).json({ message: 'Specified id is not valid' });
       return;
@@ -95,12 +111,8 @@ router.get('/trails', (req, res, next) => {
         res.json(error);
       });
   });
-
-
-
-
    
-  router.put('/trails/:id', (req, res, next) => {
+router.put('/trails/:id', (req, res, next) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       res.status(400).json({ message: 'Specified id is not valid' });
       return;
@@ -115,10 +127,7 @@ router.get('/trails', (req, res, next) => {
       });
   });
 
-
-
-   
-  router.delete('/trails/:id', (req, res, next) => {
+router.delete('/trails/:id', (req, res, next) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       res.status(400).json({ message: 'Specified id is not valid' });
       return;
