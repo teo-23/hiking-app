@@ -3,7 +3,7 @@ import './googlemaps.css'
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker.jsx'
 import AddTrail from './AddTrail.jsx'
-import GoogleMapsService from '../../service/googlemaps-service'
+import TrailService from '../../service/trail-service'
 //const AnyReactComponent = ({ text }) => <div>{text}</div>;
  
 class Googlemaps extends Component {
@@ -20,7 +20,7 @@ class Googlemaps extends Component {
     lng: '',
     trails: [],
     succes: null,
-    service: new GoogleMapsService()
+    service: new TrailService()
   }
 
   _onClick = ({lat, lng}) => {

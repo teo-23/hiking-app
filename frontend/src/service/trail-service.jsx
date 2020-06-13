@@ -15,7 +15,7 @@ class TrailService {
   }
 
   fetchTrails = (lat, lng) => {
-    return this.service.post('/trails', {lat, lng})
+    return this.service.post('/getTrails', {lat, lng})
     .then(response => response.data)
   }
   
