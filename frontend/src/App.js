@@ -29,6 +29,7 @@ class App extends Component {
       loggedInUser: null,
       trails: [],
       showForm: false,
+      response: "",
       lat: '',
       lng: ''
      };
@@ -59,11 +60,9 @@ class App extends Component {
 
   setTrails = (trails) => {
     this.setState({trails: trails})
-    console.log(this.state.trails)
   }
 
   showForm = (lat, lng) => {
-    console.log(this.state.showForm)
     console.log(this.state.trails)
     this.state.showForm ? 
     this.setState({showForm: false}) :
@@ -78,7 +77,7 @@ class App extends Component {
       return (
         <div className="App">
           <Navbar userInSession={this.state.loggedInUser} />
-          <Switch> 
+          
             {/* <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
             <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/> */}
             <Route exact path="/trails" component={TrailsList}/>
@@ -97,9 +96,10 @@ class App extends Component {
           {this.state.showForm && <AddTrailForm 
           lat={this.state.lat}
           lng={this.state.lng}
-          hideForm={() => this.setState({showForm: false})}
+          hideForm={(response) => this.setState({showForm: false})}
           />}
 
+          
           { this.state.trails.map((trail, index) => (
             <SearchResults 
             key = {index}
@@ -110,17 +110,7 @@ class App extends Component {
             />
           ))
           }
-         
-
-          {/* <CardPhotoLeft />
-          <HorizontalLine />
-          <CardPhotoRight />
-          <HorizontalLine />
-          <HorizontalPhoto />
-          <HorizontalLine />
-          <FreeText />
-          <HorizontalLine /> */}
-          </Switch>
+          
           <Footer />
         </div>
       );
@@ -139,8 +129,7 @@ class App extends Component {
 
 
             <div className="homepage">
-              {/* <GoogleMaps />
-              <SearchBar /> */}
+              
               <HorizontalPhoto />
               <HorizontalLine />
 
